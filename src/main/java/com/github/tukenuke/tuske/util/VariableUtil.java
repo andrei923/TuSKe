@@ -2,10 +2,7 @@ package com.github.tukenuke.tuske.util;
 
 import ch.njol.skript.variables.Variables;
 import org.bukkit.event.Event;
-
-import java.util.HashMap;
-import java.util.TreeMap;
-import java.util.WeakHashMap;
+import java.util.Map;
 
 /**
  * @author Tuke_Nuke on 28/05/2017
@@ -21,7 +18,7 @@ public class VariableUtil {
 	private VariableUtil() {
 
 	}
-	public WeakHashMap<Event, Object> map = ReflectionUtils.getField(Variables.class, null, "localVariables");
+	public Map<Event, Object> map = ReflectionUtils.getField(Variables.class, null, "localVariables");
 	/**
 	 * Some hacking methods to copy variables from one event, and paste
 	 * to another. It allows to run the section using the same variables
@@ -29,7 +26,6 @@ public class VariableUtil {
 	 * @param from - The Event to copy the variable from
 	 * @return The VariableMap wrapped in Object
 	 */
-	@SuppressWarnings("unchecked")
 	public Object copyVariables(Event from){
 		if (from != null && map.containsKey(from)) {
 			Object variablesMap = map.get(from);
@@ -39,8 +35,8 @@ public class VariableUtil {
 			//TuSKe.debug(newVariablesMap, variablesMap);
 			if (newVariablesMap == null)
 				return null;
-			HashMap<String, Object> single = ReflectionUtils.getField(newVariablesMap.getClass(), newVariablesMap, "hashMap");
-			TreeMap<String, Object> list = ReflectionUtils.getField(newVariablesMap.getClass(), newVariablesMap, "treeMap");
+			Map<String, Object> single = ReflectionUtils.getField(newVariablesMap.getClass(), newVariablesMap, "hashMap");
+			Map<String, Object> list = ReflectionUtils.getField(newVariablesMap.getClass(), newVariablesMap, "treeMap");
 			single.putAll(ReflectionUtils.getField(variablesMap.getClass(), variablesMap, "hashMap"));
 			list.putAll(ReflectionUtils.getField(variablesMap.getClass(), variablesMap, "treeMap"));
 			return newVariablesMap;

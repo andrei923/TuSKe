@@ -82,7 +82,7 @@ public abstract class SimpleType<T> extends ClassInfo<T> implements Changer<T>{
 						}
 			}));
 		} catch (Exception e) {
-			TuSKe.debug("Couldn't register the type '" + name + "'. Due to: " + (e.getMessage() != null && !e.getMessage().isEmpty() ? e.getMessage() : "unknown"));
+			TuSKe.log("Couldn't register the type '" + name + "'. Due to: " + (e.getMessage() != null && !e.getMessage().isEmpty() ? e.getMessage() : "unknown"));
 		}
 		
 	}

@@ -67,6 +67,7 @@ public class Evaluate {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void evaluate(String code, Event e, Variable results, boolean parseString, Config currentScript, List<Argument<?>> args, TriggerItem source, boolean runWithSafety) {
 		if (code != null && !code.isEmpty()) {
 			final RetainingLogHandler log = SkriptLogger.startRetainingLog();

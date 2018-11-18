@@ -62,6 +62,7 @@ public class EffEvaluate extends Effect{
 
 	private Config currentScript;
 	private List<Argument<?>> args;
+	@SuppressWarnings("rawtypes")
 	private Variable results;
 	private Expression<String> varStr;
 	private String str;
@@ -77,7 +78,7 @@ public class EffEvaluate extends Effect{
 		return "evaluate inline";
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public boolean init(Expression<?>[] expr, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
 		if (expr[0] != null) {

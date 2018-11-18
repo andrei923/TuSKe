@@ -1,0 +1,6 @@
+name: TuSKe
+description: A Skript Addon which has some usefull stuff.
+main: com.github.tukenuke.tuske.TuSKe
+version: 0.0.1
+author: Tuke_Nuke
+depend: [Skript]

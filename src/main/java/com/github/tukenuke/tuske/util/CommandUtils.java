@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import ch.njol.skript.Skript;
 import com.github.tukenuke.tuske.TuSKe;
 import org.bukkit.Bukkit;

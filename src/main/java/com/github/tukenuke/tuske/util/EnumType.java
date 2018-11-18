@@ -13,7 +13,7 @@ import com.github.tukenuke.tuske.TuSKe;
 
 import java.util.StringJoiner;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class EnumType extends ClassInfo{
 
 	public <T extends Enum<T>> EnumType(final Class<T> c, String code, String regexUser) {
@@ -38,7 +38,7 @@ public class EnumType extends ClassInfo{
 				if (ci.getParser() != null && !ci.getParser().getClass().getPackage().getName().startsWith(Skript.class.getPackage().getName()))
 					ReflectionUtils.setField(ClassInfo.class, ci, "parser", parser);
 			} else
-				TuSKe.debug("Couldn't register the type '" + code + "'. Due to: " + (e.getMessage() != null && !e.getMessage().isEmpty() ? e.getMessage() : "unknown"));
+				TuSKe.log("Couldn't register the type '" + code + "'. Due to: " + (e.getMessage() != null && !e.getMessage().isEmpty() ? e.getMessage() : "unknown"));
 		}
 
 	}

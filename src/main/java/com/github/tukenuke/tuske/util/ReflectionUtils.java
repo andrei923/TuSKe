@@ -3,8 +3,6 @@ package com.github.tukenuke.tuske.util;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
-import com.github.tukenuke.tuske.TuSKe;
 import org.bukkit.Bukkit;
 
 /**
@@ -25,8 +23,6 @@ public class ReflectionUtils {
 			Class.forName(clz);
 			return true;
 		} catch (Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return false;
 		
@@ -40,8 +36,6 @@ public class ReflectionUtils {
 		try {
 			return Class.forName(clz);
 		} catch (Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return null;
 	}
@@ -49,8 +43,6 @@ public class ReflectionUtils {
 		try {
 			return clz.getConstructor(parameters);
 		} catch (Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return null;
 	}
@@ -65,8 +57,6 @@ public class ReflectionUtils {
 		try{
 			return getMethod(clz, method, parameters) != null;
 		} catch(Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return false;
 	}
@@ -75,8 +65,6 @@ public class ReflectionUtils {
 		try {
 			return clz.getDeclaredMethod(method, parameters); 
 		} catch (Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return null;
 	}
@@ -91,8 +79,6 @@ public class ReflectionUtils {
 			m.setAccessible(true);
 			return (T) m.invoke(instance, parameters);
 		} catch (Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return null;
 	}
@@ -102,8 +88,6 @@ public class ReflectionUtils {
 			method.setAccessible(true);
 			return (T) method.invoke(instance, parameters);
 		} catch (Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return null;
 	}
@@ -118,8 +102,6 @@ public class ReflectionUtils {
 			c.setAccessible(true);
 			return c.newInstance();
 		} catch (Exception e) {
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return null;
 	}
@@ -131,8 +113,6 @@ public class ReflectionUtils {
 		try {
 			return constructor.newInstance(objects);
 		} catch (Exception e) {
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return null;
 	}
@@ -151,8 +131,6 @@ public class ReflectionUtils {
 			f.set(obj, newValue);
 			return true;
 		} catch (Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return false;
 	}
@@ -170,8 +148,6 @@ public class ReflectionUtils {
 			f.setAccessible(true);
 			return (T) f.get(obj);
 		} catch (Exception e){
-			if (TuSKe.debug())
-				e.printStackTrace();
 		}
 		return null;
 		
